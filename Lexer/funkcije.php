@@ -13,6 +13,7 @@ function ponavljanje(string $ulaz, string $trazi, string $broji): int {
             return -1;
         }
     }
+    
     for ($ajmo = 0; $ajmo < $duljna; $ajmo++) {
         if ($ulaz[$ajmo] == $trazi) {
             $broj_trazi++;
