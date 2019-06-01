@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/lib.php';
+
+$collectedTests = collectTestsIn($argv[1] ?? __DIR__ . '/../tests');
+
+if (null === $collectedTests) {
+    exit(2);
+}
+
+[$runFailed, $runTests] = runTests($collectedTests);
+
+printTestResult($runTests);
+
+if ($runFailed > 0) {
+    exit(1);
+}
